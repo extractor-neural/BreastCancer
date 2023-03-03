@@ -1,0 +1,2 @@
+source: ../operational_rdbms/requests_table.csv
+destination: ../data_lake/landing/pqrs/requests_table_{}.csv
