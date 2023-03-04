@@ -10,7 +10,7 @@ in_progress_rate_per_person = 15
 team_size = 8
 
 
-def process_next_weeks(n_weeks):
+def process_next_weeks(n_weeks=1):
     for _ in range(n_weeks):
         process_next_week()
 
@@ -25,7 +25,7 @@ def process_next_week():
     batch = select_next_week(batch)
     batch = assign_last_modified_field(batch)
     rdbms_requests_table = pd.concat([rdbms_requests_table, batch])
-    rdbms_requests_table = process_rdbms_request_table(rdbms_requests_table)
+    #rdbms_requests_table = process_rdbms_request_table(rdbms_requests_table)
     overwrite_rdbms_requests_table(rdbms_requests_table)
     print(rdbms_requests_table.loc[batch.index, :])
 
@@ -43,12 +43,11 @@ def select_next_week(batch_data):
     return batch_data
 
 
-def restart(restart_date="2017-09-14"):
+def restart(restart_date="2020-04-17"):
     historial_requests_table = load_historial_requests_table()
     requests_table = select_initial_request_table(
         historial_requests_table, restart_date
     )
-    requests_table = process_rdbms_request_table(requests_table)
     overwrite_rdbms_requests_table(requests_table)
     print(requests_table)
 
@@ -83,6 +82,7 @@ def compute_team_capacity(table):
 def process_current_date(
     table, current_date, daily_assign_capacity, max_in_progress_capacity
 ):
+
 
     batch_data = table[table.status != "closed"].copy()
     batch_data = batch_data[batch_data.open_date <= current_date]
@@ -196,7 +196,7 @@ def assign_last_modified_field(table):
 
 def load_historial_requests_table():
     module_path = os.path.dirname(__file__)
-    filename = os.path.join(module_path, "historical_requests_table.csv")
+    filename = os.path.join(module_path, "data_breastCancer.csv")
     if not os.path.exists(filename):
         raise FileNotFoundError(f"File {filename} not found")
     data = pd.read_csv(filename, sep=",")

@@ -1,4 +1,3 @@
-#dfdf
 import sys
 
 import simulator
