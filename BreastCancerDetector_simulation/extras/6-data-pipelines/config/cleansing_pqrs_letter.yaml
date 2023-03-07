@@ -1,2 +1,0 @@
-source: ../data_lake/landing/pqrs/letter
-destination: ../data_lake/raw/pqrs/letter

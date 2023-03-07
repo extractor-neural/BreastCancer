@@ -1,2 +1,0 @@
-source: ../data_lake/landing/pqrs/web
-destination: ../data_lake/raw/pqrs/web

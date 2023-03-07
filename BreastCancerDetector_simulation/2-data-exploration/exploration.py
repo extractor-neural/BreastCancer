@@ -2,9 +2,8 @@ import os
 from datetime import datetime, timedelta
 
 import pandas as pd
-import numpy as np 
-import matplotlib.pyplot as plt 
-import seaborn as sns 
+import numpy as np
+
 
 
 def main():
@@ -60,7 +59,7 @@ def option4():
     # Count the number of rows in the filtered dataframe
     num_cases = len(filtered_table)
 
-    print("\nNumber pacients between \n",start_date,' and ', end_date, 'is: ',num_cases,'\n')
+    print("\nNumber pacients between ",start_date,' and ', end_date, 'is: ',num_cases,'\n')
 
 def exit_program():
     print('Thanks message before exiting')

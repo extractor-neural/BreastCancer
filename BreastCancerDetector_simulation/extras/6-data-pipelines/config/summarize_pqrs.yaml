@@ -1,3 +1,0 @@
-web_source: ../data_lake/raw/pqrs/web
-letter_source: ../data_lake/raw/pqrs/letter
-destination: ../data_lake/cleansed/pqrs
