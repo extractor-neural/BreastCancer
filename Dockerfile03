@@ -1,8 +1,0 @@
-FROM ubuntu:20.04
-ENV DEBIAN_FRONTEND=nonintercative
-RUN apt-get update -y && apt-get install -y python3-pip \
-	curl \
-	git \
-	vim
-WORkDIR /workspace
-CMD ["/bin/bash"]
